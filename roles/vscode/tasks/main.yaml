@@ -1,0 +1,11 @@
+- name: ensure checkpoint dir
+  file:
+    path: "{{ vscode.plugin_checkpoint }}"
+    state: directory
+
+- name: install vscode plugins
+  shell: "{{ vscode.bin }} --install-extension {{ item }} && touch {{ vscode.plugin_checkpoint}}/{{ item }}"
+  args:
+    creates: "{{ vscode.plugin_checkpoint }}/{{ item }}"
+  loop:
+    "{{ vscode.plugins }}"

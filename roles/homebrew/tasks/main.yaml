@@ -1,0 +1,17 @@
+- name: homebrew tap
+  shell: "{{ homebrew.bin }} tap {{ item }}"
+  args:
+    creates: "/opt/homebrew/Library/Taps/homebrew/{{ item | replace('/', '-') }}"
+  loop: "{{ homebrew.taps }}"
+
+- name: homebrew library
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ homebrew.libraries }}"
+
+- name: homebrew cask
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ homebrew.cask }}"

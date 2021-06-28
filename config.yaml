@@ -1,0 +1,55 @@
+home: /Users/faisal
+
+homebrew:
+  bin: /opt/homebrew/bin/brew
+  taps:
+    - homebrew/cask-fonts
+  cask:
+    - miniforge
+    - font-hack-nerd-font
+    - spotify
+    - google-cloud-sdk
+    - visual-studio-code
+    - notion
+    - transmission
+  libraries:
+    - fd
+    - gnu-tar
+    - wget
+    - go
+    - httpie
+    - jq
+    - kubernetes-cli
+    - lazygit
+    - navi
+    - task
+    - fzf
+    - ripgrep
+    - starship
+    - zoxide
+    - tree
+    - neovim
+    - zsh-autosuggestions
+    - redis
+    - tmux
+    - black
+    - youtube-dl
+    - yq
+
+nvim:
+  vim_plug: "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  autoload_dir: "{{home}}/.local/share/nvim/site/autoload/"
+  config_dir: "{{home}}/.config/nvim/"
+
+config:
+  - { name: init.vim, dest: "{{ nvim.config_dir }}" }
+  - { name: .zshrc, dest: "{{ home }}" }
+  - { name: starship.toml, dest: "{{ home }}/.config/" }
+  - { name: .gitignore, dest: "{{ home }}" }
+  - { name: .tmux.conf, dest: "{{ home }}" }
+
+vscode:
+  bin: /opt/homebrew/bin/code
+  plugin_checkpoint: "{{ home }}/.vscode/plugins"
+  plugins:
+    - tomphilbin.gruvbox-themes

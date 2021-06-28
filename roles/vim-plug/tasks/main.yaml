@@ -1,0 +1,9 @@
+- name: create autoload dir
+  file:
+    path: "{{ nvim.autoload_dir }}"
+    state: directory
+
+- name: install vim plug
+  get_url:
+    url: "{{ nvim.vim_plug }}"
+    dest: '{{ nvim.autoload_dir }}/plug.vim'

@@ -1,0 +1,11 @@
+---
+- hosts: all
+  vars_files:
+    - config.yaml
+  roles:
+    - homebrew
+    - fzf
+    - config
+    - vim-plug
+    - gcloud
+    - vscode
