@@ -5,4 +5,4 @@
 2. setup neovim
 3. setup vscode
 
-But I create much more in private repo (becouse of some secret)
+But I create much more in private repo (becouse of some secret, I can't share)
